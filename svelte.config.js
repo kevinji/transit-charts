@@ -20,13 +20,7 @@ const config = {
     },
     typescript: {
       config: (config) => {
-        config.include.push(
-          "../eslint.config.js",
-          "../postcss.config.js",
-          "../prettier.config.js",
-          "../svelte.config.js",
-          "../tailwind.config.ts",
-        );
+        config.include.push("../eslint.config.js", "../prettier.config.js", "../svelte.config.js");
       },
     },
   },
