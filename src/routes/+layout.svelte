@@ -1,6 +1,6 @@
 <script lang="ts">
   import type { Snippet } from "svelte";
-  import { page } from "$app/stores";
+  import { page } from "$app/state";
 
   import "../app.css";
 
@@ -12,14 +12,14 @@
 
   const siteTitle = "Transit Charts";
 
-  const title = $derived($page.data?.title ? `${$page.data.title} • ${siteTitle}` : siteTitle);
-  const description = $derived($page.data?.description ?? "");
-  const canonicalUrl = $derived(`${$page.url.origin}${$page.url.pathname}`);
+  const title = $derived(page.data?.title ? `${page.data.title} • ${siteTitle}` : siteTitle);
+  const description = $derived(page.data?.description ?? "");
+  const canonicalUrl = $derived(`${page.url.origin}${page.url.pathname}`);
 </script>
 
 <svelte:head>
   <title>{title}</title>
-  {#if !$page.data?.isError && !$page.error}
+  {#if !page.data?.isError && !page.error}
     <meta name="author" content="Kevin Ji" />
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content={siteTitle} />
