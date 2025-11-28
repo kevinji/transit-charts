@@ -9,7 +9,7 @@
 
   # https://devenv.sh/languages/
   languages.javascript.enable = true;
-  languages.javascript.package = pkgs.nodejs-slim_22;
+  languages.javascript.package = pkgs.nodejs-slim_24;
   languages.javascript.pnpm.enable = true;
 
   # https://devenv.sh/processes/
