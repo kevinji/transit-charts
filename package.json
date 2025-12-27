@@ -29,17 +29,17 @@
     "prettier": "^3.7.4",
     "prettier-plugin-svelte": "^3.4.1",
     "prettier-plugin-tailwindcss": "^0.7.2",
-    "svelte": "^5.46.0",
+    "svelte": "^5.46.1",
     "svelte-check": "^4.3.5",
     "svelte-vega": "^4.0.1",
     "tailwindcss": "^4.1.18",
     "typescript": "^5.9.3",
-    "typescript-eslint": "^8.50.0",
+    "typescript-eslint": "^8.50.1",
     "vega": "^6.2.0",
     "vega-embed": "^7.1.0",
     "vega-lite": "^6.4.1",
     "vite": "^7.3.0",
-    "wrangler": "^4.56.0"
+    "wrangler": "^4.54.0"
   },
   "pnpm": {
     "overrides": {
