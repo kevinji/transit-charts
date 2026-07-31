@@ -40,6 +40,6 @@
     "vega-embed": "^7.1.0",
     "vega-lite": "^6.4.3",
     "vite": "^8.2.0",
-    "wrangler": "^4.115.0"
+    "wrangler": "^4.116.0"
   }
 }
