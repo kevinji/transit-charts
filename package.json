@@ -35,11 +35,11 @@
     "svelte-vega": "^4.1.0",
     "tailwindcss": "^4.3.3",
     "typescript": "^6.0.3",
-    "typescript-eslint": "^8.66.0",
+    "typescript-eslint": "^8.67.0",
     "vega": "^6.3.1",
     "vega-embed": "^7.1.0",
     "vega-lite": "^6.4.3",
     "vite": "^8.2.1",
-    "wrangler": "^4.120.0"
+    "wrangler": "^4.120.1"
   }
 }
