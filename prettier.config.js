@@ -1,7 +1,7 @@
 /** @type {import("prettier").Config} */
 const config = {
   printWidth: 100,
-  plugins: ["prettier-plugin-svelte", "prettier-plugin-tailwindcss"],
+  plugins: ["prettier-plugin-svelte"],
   overrides: [
     {
       files: "*.svelte",

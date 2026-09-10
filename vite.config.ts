@@ -1,7 +1,18 @@
+import path from "node:path";
 import { sveltekit } from "@sveltejs/kit/vite";
-import tailwindcss from "@tailwindcss/vite";
+import stylex from "@stylexjs/unplugin";
 import { defineConfig } from "vite";
 
 export default defineConfig({
-  plugins: [tailwindcss(), sveltekit()],
+  plugins: [
+    sveltekit(),
+    {
+      // Runs after the Svelte compiler so StyleX sees plain JavaScript, hence no `enforce: "pre"`.
+      ...stylex.vite({
+        useCSSLayers: true,
+        aliases: { "$lib/*": [path.resolve("src/lib/*")] },
+      }),
+      enforce: undefined,
+    },
+  ],
 });

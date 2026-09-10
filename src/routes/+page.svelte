@@ -1,3 +1,17 @@
+<script lang="ts" module>
+  import * as stylex from "@stylexjs/stylex";
+  import { colors, typography } from "$lib/styles/tokens.stylex";
+
+  const styles = stylex.create({
+    h1: {
+      fontSize: typography.headingSize,
+      fontWeight: 700,
+      lineHeight: typography.headingLineHeight,
+      color: colors.text,
+    },
+  });
+</script>
+
 <script lang="ts">
   import { VegaLite, type View, type VisualizationSpec } from "svelte-vega";
 
@@ -29,7 +43,7 @@
   };
 </script>
 
-<h1 class="text-4xl font-bold">Transit Charts</h1>
+<h1 {...stylex.attrs(styles.h1)}>Transit Charts</h1>
 <p>View ridership data for transit systems around the world.</p>
 
 <VegaLite {data} {spec} bind:view />

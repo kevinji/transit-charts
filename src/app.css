@@ -1,2 +1,16 @@
-@import "tailwindcss";
-@plugin "@tailwindcss/forms";
+/* Document-level styles that StyleX cannot express (it only targets elements it is applied to). */
+
+*,
+::before,
+::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  /* slate-50 */
+  background-color: oklch(98.4% 0.003 247.858);
+  font-family:
+    ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol",
+    "Noto Color Emoji";
+}
