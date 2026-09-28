@@ -1,8 +1,8 @@
 import adapter from "@sveltejs/adapter-cloudflare";
+import type { Config } from "@sveltejs/kit";
 import { vitePreprocess } from "@sveltejs/vite-plugin-svelte";
 
-/** @type {import("@sveltejs/kit").Config} */
-const config = {
+const config: Config = {
   preprocess: vitePreprocess(),
 
   kit: {
@@ -20,7 +20,7 @@ const config = {
     },
     typescript: {
       config: (config) => {
-        config.include.push("../eslint.config.js", "../prettier.config.js", "../svelte.config.js");
+        config.include.push("../eslint.config.ts", "../prettier.config.ts", "../svelte.config.ts");
       },
     },
   },
