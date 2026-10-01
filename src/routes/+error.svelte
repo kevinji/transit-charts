@@ -1,6 +1,6 @@
 <script lang="ts" module>
   import * as stylex from "@stylexjs/stylex";
-  import { colors, typography } from "$lib/styles/tokens.stylex";
+  import { colors, typography } from "#lib/styles/tokens.stylex.js";
 
   const styles = stylex.create({
     h1: {

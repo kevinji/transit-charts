@@ -1,6 +1,6 @@
 <script lang="ts" module>
   import * as stylex from "@stylexjs/stylex";
-  import { spacing } from "$lib/styles/tokens.stylex";
+  import { spacing } from "#lib/styles/tokens.stylex.js";
 
   const styles = stylex.create({
     main: {
