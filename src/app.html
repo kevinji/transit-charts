@@ -6,6 +6,24 @@
     %sveltekit.head%
 
     <link rel="icon" href="%sveltekit.assets%/favicon.png">
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() { dataLayer.push(arguments); }
+      gtag("js", new Date());
+      gtag("config", "G-QEWRRLXXCS");
+
+      const googleAnalytics = document.createElement("script");
+      googleAnalytics.async = true;
+      googleAnalytics.crossOrigin = "anonymous";
+      googleAnalytics.src = "https://www.googletagmanager.com/gtag/js?id=G-QEWRRLXXCS";
+      document.head.append(googleAnalytics);
+
+      const cloudflareAnalytics = document.createElement("script");
+      cloudflareAnalytics.type = "module";
+      cloudflareAnalytics.src = "https://static.cloudflareinsights.com/beacon.min.js";
+      cloudflareAnalytics.dataset.cfBeacon = '{"token": "ecf2f8ac4e87462bb0d4afe6ee981eed"}';
+      document.head.append(cloudflareAnalytics);
+    </script>
   </head>
   <body data-sveltekit-preload-data="hover">
     <div style="display: contents">%sveltekit.body%</div>
