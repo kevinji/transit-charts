@@ -1,6 +1,7 @@
 import type { VisualizationSpec } from "svelte-vega";
 import bartRidership from "#data/bart/weekday-ridership.json";
 import muniRidership from "#data/sfmta/weekday-ridership.json";
+import nycSubwayRidership from "#data/mta/weekday-ridership.json";
 
 export interface MonthlyRidership {
   year: number;
@@ -9,7 +10,7 @@ export interface MonthlyRidership {
 }
 
 export interface Agency {
-  slug: "bart" | "muni";
+  slug: "bart" | "muni" | "nyc-subway";
   name: string;
   fullName: string;
   ridership: MonthlyRidership[];
@@ -27,6 +28,12 @@ export const agencies = {
     name: "Muni",
     fullName: "San Francisco Municipal Railway",
     ridership: muniRidership,
+  },
+  nycSubway: {
+    slug: "nyc-subway",
+    name: "NYC Subway",
+    fullName: "the New York City Subway",
+    ridership: nycSubwayRidership,
   },
 } satisfies Record<string, Agency>;
 
