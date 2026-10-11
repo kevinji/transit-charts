@@ -9,7 +9,7 @@ export default defineConfig({
   plugins: [
     sveltekit({
       preprocess: vitePreprocess(),
-      adapter: adapter({ routes: { include: ["/*"], exclude: ["/*"] } }),
+      adapter: adapter({ fallback: "plaintext" }),
       paths: { relative: false, origin: "https://transitcharts.com" },
     }),
 
