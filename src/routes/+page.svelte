@@ -1,6 +1,6 @@
 <script lang="ts" module>
   import * as stylex from "@stylexjs/stylex";
-  import { colors, typography } from "#lib/styles/tokens.stylex.js";
+  import { colors, spacing, typography } from "#lib/styles/tokens.stylex.js";
 
   const styles = stylex.create({
     h1: {
@@ -9,41 +9,41 @@
       lineHeight: typography.headingLineHeight,
       color: colors.text,
     },
+    h2: {
+      marginTop: spacing.sectionGap,
+      fontSize: typography.subheadingSize,
+      fontWeight: 700,
+      lineHeight: typography.subheadingLineHeight,
+      color: colors.text,
+    },
+    muted: {
+      color: colors.mutedText,
+    },
+    link: {
+      color: colors.link,
+    },
   });
 </script>
 
 <script lang="ts">
-  import { VegaLite, type View, type VisualizationSpec } from "svelte-vega";
-
-  const data = {
-    table: [
-      { category: "A", amount: 28 },
-      { category: "B", amount: 55 },
-      { category: "C", amount: 43 },
-      { category: "D", amount: 91 },
-      { category: "E", amount: 81 },
-      { category: "F", amount: 53 },
-      { category: "G", amount: 19 },
-      { category: "H", amount: 87 },
-    ],
-  };
-
-  let view: View | undefined = $state(undefined);
-  const spec: VisualizationSpec = {
-    $schema: "https://vega.github.io/schema/vega-lite/v5.json",
-    description: "A simple bar chart with embedded data.",
-    data: {
-      name: "table",
-    },
-    mark: "bar",
-    encoding: {
-      x: { field: "category", type: "nominal" },
-      y: { field: "amount", type: "quantitative" },
-    },
-  };
+  import { resolve } from "$app/paths";
+  import RidershipChart from "#lib/components/RidershipChart.svelte";
+  import { agencies, yearlyRidershipSpec } from "#lib/ridership.js";
 </script>
 
 <h1 {...stylex.attrs(styles.h1)}>Transit Charts</h1>
-<p>View ridership data for transit systems around the world.</p>
+<p {...stylex.attrs(styles.muted)}>
+  Average weekday ridership by year. Lighter bars are years with only some months of data.
+</p>
 
-<VegaLite {data} {spec} bind:view />
+{#each Object.values(agencies) as agency (agency.slug)}
+  <section>
+    <h2 {...stylex.attrs(styles.h2)}>{agency.name}</h2>
+    <RidershipChart spec={yearlyRidershipSpec()} ridership={agency.ridership} />
+    <p>
+      <a href={resolve(`/${agency.slug}`)} {...stylex.attrs(styles.link)}>
+        {agency.name} ridership by month →
+      </a>
+    </p>
+  </section>
+{/each}

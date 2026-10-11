@@ -4,8 +4,10 @@
 
   const styles = stylex.create({
     main: {
+      maxWidth: spacing.pageMaxWidth,
       paddingBlock: spacing.pageBlock,
       paddingInline: spacing.pageInline,
+      marginInline: "auto",
     },
   });
 </script>

@@ -5,3 +5,6 @@ yarn.lock
 
 # Project-specific
 /src/app.html
+
+# Data submodule
+/data
