@@ -1,0 +1,19 @@
+name = "transit-charts"
+compatibility_date = "2026-10-11"
+compatibility_flags = ["nodejs_compat"]
+workers_dev = false
+
+[[routes]]
+pattern = "transitcharts.com"
+custom_domain = true
+
+[[routes]]
+pattern = "www.transitcharts.com"
+custom_domain = true
+
+[assets]
+directory = ".svelte-kit/cloudflare"
+not_found_handling = "404-page"
+
+[observability]
+enabled = true
