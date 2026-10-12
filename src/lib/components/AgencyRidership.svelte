@@ -38,6 +38,7 @@
 
 <script lang="ts">
   import { resolve } from "$app/paths";
+  import DataSource from "#lib/components/DataSource.svelte";
   import RidershipChart from "#lib/components/RidershipChart.svelte";
   import { monthlyRidershipSpec, yearlyRidershipSpec, type Agency } from "#lib/ridership.js";
 
@@ -81,3 +82,4 @@
   </select>
 </label>
 <RidershipChart spec={monthlyRidershipSpec(maxRiders)} ridership={yearRidership} />
+<DataSource {agency} />

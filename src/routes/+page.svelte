@@ -27,6 +27,7 @@
 
 <script lang="ts">
   import { resolve } from "$app/paths";
+  import DataSource from "#lib/components/DataSource.svelte";
   import RidershipChart from "#lib/components/RidershipChart.svelte";
   import { agencies, yearlyRidershipSpec } from "#lib/ridership.js";
 </script>
@@ -40,6 +41,7 @@
   <section>
     <h2 {...stylex.attrs(styles.h2)}>{agency.name}</h2>
     <RidershipChart spec={yearlyRidershipSpec()} ridership={agency.ridership} />
+    <DataSource {agency} />
     <p>
       <a href={resolve(`/${agency.slug}`)} {...stylex.attrs(styles.link)}>
         {agency.name} ridership by month →

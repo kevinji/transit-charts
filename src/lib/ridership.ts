@@ -9,10 +9,17 @@ export interface MonthlyRidership {
   riders: number;
 }
 
+export interface Link {
+  name: string;
+  url: string;
+}
+
 export interface Agency {
   slug: "bart" | "muni" | "nyc-subway";
   name: string;
   fullName: string;
+  source: Link;
+  license?: Link;
   ridership: MonthlyRidership[];
 }
 
@@ -21,18 +28,25 @@ export const agencies = {
     slug: "bart",
     name: "BART",
     fullName: "Bay Area Rapid Transit",
+    source: { name: "BART", url: "https://www.bart.gov/about/reports/ridership" },
+    license: { name: "CC BY", url: "https://opendefinition.org/licenses/cc-by/" },
     ridership: bartRidership,
   },
   muni: {
     slug: "muni",
     name: "Muni",
     fullName: "San Francisco Municipal Railway",
+    source: {
+      name: "SFMTA",
+      url: "https://transtat.sfmta.com/t/public/views/Goal2Dashboards/RidershipTable",
+    },
     ridership: muniRidership,
   },
   nycSubway: {
     slug: "nyc-subway",
     name: "NYC Subway",
     fullName: "the New York City Subway",
+    source: { name: "MTA", url: "https://www.mta.info/open-data" },
     ridership: nycSubwayRidership,
   },
 } satisfies Record<string, Agency>;
