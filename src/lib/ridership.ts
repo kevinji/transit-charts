@@ -1,7 +1,7 @@
 import type { VisualizationSpec } from "svelte-vega";
 import bartRidership from "#data/bart/weekday-ridership.json";
 import dcMetroRidership from "#data/wmata/weekday-ridership.json";
-import muniRidership from "#data/sfmta/weekday-ridership.json";
+import muniMetroRidership from "#data/sfmta/weekday-ridership.json";
 import nycSubwayRidership from "#data/mta/weekday-ridership.json";
 
 export interface MonthlyRidership {
@@ -16,7 +16,7 @@ export interface Link {
 }
 
 export interface Agency {
-  slug: "bart" | "dc-metro" | "muni" | "nyc-subway";
+  slug: "bart" | "dc-metro" | "muni-metro" | "nyc-subway";
   name: string;
   fullName: string;
   source: Link;
@@ -33,15 +33,15 @@ export const agencies = {
     license: { name: "CC BY", url: "https://opendefinition.org/licenses/cc-by/" },
     ridership: bartRidership,
   },
-  muni: {
-    slug: "muni",
-    name: "Muni",
-    fullName: "San Francisco Municipal Railway",
+  muniMetro: {
+    slug: "muni-metro",
+    name: "Muni Metro",
+    fullName: "Muni Metro",
     source: {
       name: "SFMTA",
       url: "https://transtat.sfmta.com/t/public/views/Goal2Dashboards/RidershipTable",
     },
-    ridership: muniRidership,
+    ridership: muniMetroRidership,
   },
   nycSubway: {
     slug: "nyc-subway",

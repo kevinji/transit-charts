@@ -3,4 +3,4 @@
   import { agencies } from "#lib/ridership.js";
 </script>
 
-<AgencyRidership agency={agencies.muni} />
+<AgencyRidership agency={agencies.muniMetro} />
