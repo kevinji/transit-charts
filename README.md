@@ -1,6 +1,6 @@
 # transit-charts
 
-A website with charts for public transit ridership in the United States.
+A website ([transitcharts.com](https://transitcharts.com)) with charts for public transit ridership in the United States.
 
 ## Related repositories
 
