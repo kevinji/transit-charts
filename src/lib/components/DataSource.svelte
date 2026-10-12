@@ -9,6 +9,10 @@
     },
     link: {
       color: colors.link,
+      textDecoration: {
+        default: "none",
+        ":hover": "underline",
+      },
     },
   });
 </script>

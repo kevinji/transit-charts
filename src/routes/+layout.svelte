@@ -15,6 +15,7 @@
 <script lang="ts">
   import type { Snippet } from "svelte";
   import { page } from "$app/state";
+  import Footer from "./Footer.svelte";
 
   import "../app.css";
 
@@ -60,3 +61,5 @@
 <main {...stylex.attrs(styles.main)}>
   {@render children()}
 </main>
+
+<Footer />

@@ -10,6 +10,8 @@ export const colors = stylex.defineVars({
   mutedText: "oklch(44.6% 0.043 257.281)",
   // blue-700
   link: "oklch(48.8% 0.243 264.376)",
+  // slate-200
+  border: "oklch(92.9% 0.013 255.508)",
 });
 
 export const typography = stylex.defineConsts({

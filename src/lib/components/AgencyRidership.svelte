@@ -21,6 +21,10 @@
     },
     link: {
       color: colors.link,
+      textDecoration: {
+        default: "none",
+        ":hover": "underline",
+      },
     },
     label: {
       display: "inline-flex",
