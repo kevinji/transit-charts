@@ -82,4 +82,7 @@
   </select>
 </label>
 <RidershipChart spec={monthlyRidershipSpec(maxRiders)} ridership={yearRidership} />
+{#if agency.notes?.[year]}
+  <p {...stylex.attrs(styles.muted)}>{agency.notes[year]}</p>
+{/if}
 <DataSource {agency} />

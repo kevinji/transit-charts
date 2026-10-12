@@ -21,6 +21,8 @@ export interface Agency {
   fullName: string;
   source: Link;
   license?: Link;
+  /** Notes shown with the monthly chart for a given year. */
+  notes?: Record<number, string>;
   ridership: MonthlyRidership[];
 }
 
@@ -40,6 +42,12 @@ export const agencies = {
     source: {
       name: "SFMTA",
       url: "https://transtat.sfmta.com/t/public/views/Goal2Dashboards/RidershipTable",
+    },
+    notes: {
+      2020:
+        "Muni Metro was suspended from April through November 2020 and replaced by buses. " +
+        "SFMTA doesn't break out ridership for the replacement buses, so these " +
+        "months show no Muni Metro riders.",
     },
     ridership: muniMetroRidership,
   },
