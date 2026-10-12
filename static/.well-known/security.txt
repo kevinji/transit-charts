@@ -1,0 +1,4 @@
+Contact: mailto:kevin@kevinji.com
+Expires: 2100-01-01T00:00:00.000Z
+Preferred-Languages: en
+Canonical: https://transitcharts.com/.well-known/security.txt
