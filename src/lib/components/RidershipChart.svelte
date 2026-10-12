@@ -12,4 +12,10 @@
   const data = $derived({ [DATASET]: ridership });
 </script>
 
-<VegaLite {spec} {data} options={{ actions: false, renderer: "svg" }} style="width: 100%" />
+<!-- The specs size to this container, so the page reserves the chart's space before it renders. -->
+<VegaLite
+  {spec}
+  {data}
+  options={{ actions: false, renderer: "svg" }}
+  style="width: 100%; height: 300px"
+/>

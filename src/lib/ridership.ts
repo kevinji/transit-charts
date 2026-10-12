@@ -95,7 +95,7 @@ export function yearlyRidershipSpec(): VisualizationSpec {
   return {
     $schema: SCHEMA,
     width: "container",
-    height: 300,
+    height: "container",
     data: { name: DATASET },
     transform: [
       {
@@ -138,7 +138,7 @@ export function monthlyRidershipSpec(maxRiders: number): VisualizationSpec {
   return {
     $schema: SCHEMA,
     width: "container",
-    height: 300,
+    height: "container",
     data: { name: DATASET },
     transform: [{ calculate: "datetime(datum.year, datum.month - 1, 1)", as: "date" }],
     mark: { type: "bar", tooltip: true },
