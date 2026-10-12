@@ -1,5 +1,6 @@
 import type { VisualizationSpec } from "svelte-vega";
 import bartRidership from "#data/bart/weekday-ridership.json";
+import dcMetroRidership from "#data/wmata/weekday-ridership.json";
 import muniRidership from "#data/sfmta/weekday-ridership.json";
 import nycSubwayRidership from "#data/mta/weekday-ridership.json";
 
@@ -15,7 +16,7 @@ export interface Link {
 }
 
 export interface Agency {
-  slug: "bart" | "muni" | "nyc-subway";
+  slug: "bart" | "dc-metro" | "muni" | "nyc-subway";
   name: string;
   fullName: string;
   source: Link;
@@ -49,7 +50,31 @@ export const agencies = {
     source: { name: "MTA", url: "https://www.mta.info/open-data" },
     ridership: nycSubwayRidership,
   },
+  dcMetro: {
+    slug: "dc-metro",
+    name: "DC Metro",
+    fullName: "the Washington Metro",
+    source: {
+      name: "WMATA",
+      url: "https://www.wmata.com/about/open-data-hub/ridership-data/metrorail-ridership-summary.html",
+    },
+    ridership: dcMetroRidership,
+  },
 } satisfies Record<string, Agency>;
+
+/**
+ * Average weekday ridership over the agency's latest 12 months of data, which compares
+ * agencies fairly even when their data ends in different months.
+ */
+export function recentRidership(agency: Agency): number {
+  const recent = agency.ridership.slice(-12);
+  return recent.reduce((sum, row) => sum + row.riders, 0) / recent.length;
+}
+
+/** Agencies sorted from highest to lowest recent ridership. */
+export const agenciesByRidership: Agency[] = Object.values(agencies).sort(
+  (a, b) => recentRidership(b) - recentRidership(a),
+);
 
 const SCHEMA = "https://vega.github.io/schema/vega-lite/v6.json";
 const RIDERS_TITLE = "Average weekday riders";
