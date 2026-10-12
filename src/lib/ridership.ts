@@ -1,6 +1,7 @@
 import type { VisualizationSpec } from "svelte-vega";
 import bartRidership from "#data/bart/weekday-ridership.json";
 import dcMetroRidership from "#data/wmata/weekday-ridership.json";
+import linkLightRailRidership from "#data/sound-transit/weekday-ridership.json";
 import muniMetroRidership from "#data/sfmta/weekday-ridership.json";
 import nycSubwayRidership from "#data/mta/weekday-ridership.json";
 
@@ -16,7 +17,7 @@ export interface Link {
 }
 
 export interface Agency {
-  slug: "bart" | "dc-metro" | "muni-metro" | "nyc-subway";
+  slug: "bart" | "dc-metro" | "link-light-rail" | "muni-metro" | "nyc-subway";
   name: string;
   fullName: string;
   source: Link;
@@ -67,6 +68,16 @@ export const agencies = {
       url: "https://www.wmata.com/about/open-data-hub/ridership-data/metrorail-ridership-summary.html",
     },
     ridership: dcMetroRidership,
+  },
+  linkLightRail: {
+    slug: "link-light-rail",
+    name: "Link light rail",
+    fullName: "Sound Transit's Link light rail",
+    source: {
+      name: "Sound Transit",
+      url: "https://www.soundtransit.org/ride-with-us/system-performance-tracker/ridership",
+    },
+    ridership: linkLightRailRidership,
   },
 } satisfies Record<string, Agency>;
 
