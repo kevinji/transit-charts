@@ -4,6 +4,7 @@
 
   const styles = stylex.create({
     h1: {
+      marginTop: 0,
       fontSize: typography.headingSize,
       fontWeight: 700,
       lineHeight: typography.headingLineHeight,
