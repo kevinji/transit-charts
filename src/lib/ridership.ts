@@ -57,6 +57,14 @@ export const agencies = {
     name: "NYC Subway",
     fullName: "the New York City Subway",
     source: { name: "MTA", url: "https://www.mta.info/open-data" },
+    notes: {
+      2010:
+        "The MTA's turnstile data is missing May 15 to 21, 2010, so May 2010 is " +
+        "averaged over its other weekdays.",
+      2012:
+        "Hurricane Sandy shut down the subway from October 29 to 31, 2012, and fares " +
+        "were waived on November 1 and 2, so those days count almost no riders.",
+    },
     ridership: nycSubwayRidership,
   },
   dcMetro: {
