@@ -34,7 +34,7 @@
   import { resolve } from "$app/paths";
   import DataSource from "#lib/components/DataSource.svelte";
   import RidershipChart from "#lib/components/RidershipChart.svelte";
-  import { agenciesByRidership, yearlyRidershipSpec } from "#lib/ridership.js";
+  import { agenciesByRidership } from "#lib/ridership.js";
 </script>
 
 <h1 {...stylex.attrs(styles.h1)}>Transit Charts</h1>
@@ -45,7 +45,7 @@
 {#each agenciesByRidership as agency (agency.slug)}
   <section>
     <h2 {...stylex.attrs(styles.h2)}>{agency.name}</h2>
-    <RidershipChart spec={yearlyRidershipSpec()} ridership={agency.ridership} />
+    <RidershipChart chart="yearly" ridership={agency.ridership} />
     <DataSource {agency} />
     <p>
       <a href={resolve(`/${agency.slug}`)} {...stylex.attrs(styles.link)}>

@@ -45,7 +45,7 @@
   import { resolve } from "$app/paths";
   import DataSource from "#lib/components/DataSource.svelte";
   import RidershipChart from "#lib/components/RidershipChart.svelte";
-  import { monthlyRidershipSpec, yearlyRidershipSpec, type Agency } from "#lib/ridership.js";
+  import type { Agency } from "#lib/ridership.js";
 
   interface Props {
     agency: Agency;
@@ -71,7 +71,7 @@
 </p>
 
 <h2 {...stylex.attrs(styles.h2)}>By year</h2>
-<RidershipChart spec={yearlyRidershipSpec()} ridership={agency.ridership} />
+<RidershipChart chart="yearly" ridership={agency.ridership} />
 
 <h2 {...stylex.attrs(styles.h2)}>By month</h2>
 <label {...stylex.attrs(styles.label)}>
@@ -86,7 +86,7 @@
     {/each}
   </select>
 </label>
-<RidershipChart spec={monthlyRidershipSpec(maxRiders)} ridership={yearRidership} />
+<RidershipChart chart="monthly" ridership={yearRidership} {maxRiders} />
 {#if agency.notes?.[year]}
   <p {...stylex.attrs(styles.muted)}>{agency.notes[year]}</p>
 {/if}

@@ -1,4 +1,4 @@
-import type { VisualizationSpec } from "svelte-vega";
+import type { TopLevelSpec } from "vega-lite";
 import bartRidership from "#data/bart/weekday-ridership.json";
 import dcMetroRidership from "#data/wmata/weekday-ridership.json";
 import linkLightRailRidership from "#data/sound-transit/weekday-ridership.json";
@@ -106,11 +106,13 @@ export const agenciesByRidership: Agency[] = Object.values(agencies).sort(
 const SCHEMA = "https://vega.github.io/schema/vega-lite/v6.json";
 const RIDERS_TITLE = "Average weekday riders";
 
-// Charts read their rows from this named dataset, passed in through the `data` prop.
+// Charts read their rows from this named dataset, which the chart component fills in.
 export const DATASET = "ridership";
+// The monthly chart's y-axis maximum, which the chart component sets for each agency.
+export const MAX_RIDERS_SIGNAL = "maxRiders";
 
 /** Average weekday ridership for each year, with partial years drawn lighter. */
-export function yearlyRidershipSpec(): VisualizationSpec {
+export function yearlyRidershipSpec(): TopLevelSpec {
   return {
     $schema: SCHEMA,
     width: "container",
@@ -150,14 +152,15 @@ export function yearlyRidershipSpec(): VisualizationSpec {
 }
 
 /**
- * Average weekday ridership for each month of one year. `maxRiders` fixes the y-axis
- * across years so switching years doesn't rescale the chart.
+ * Average weekday ridership for each month of one year. The `maxRiders` signal fixes the
+ * y-axis across years so switching years doesn't rescale the chart.
  */
-export function monthlyRidershipSpec(maxRiders: number): VisualizationSpec {
+export function monthlyRidershipSpec(): TopLevelSpec {
   return {
     $schema: SCHEMA,
     width: "container",
     height: "container",
+    params: [{ name: MAX_RIDERS_SIGNAL, value: 0 }],
     data: { name: DATASET },
     transform: [{ calculate: "datetime(datum.year, datum.month - 1, 1)", as: "date" }],
     mark: { type: "bar", tooltip: true },
@@ -174,7 +177,7 @@ export function monthlyRidershipSpec(maxRiders: number): VisualizationSpec {
         type: "quantitative",
         title: RIDERS_TITLE,
         axis: { format: "~s" },
-        scale: { domain: [0, maxRiders], nice: true },
+        scale: { domain: [0, { expr: MAX_RIDERS_SIGNAL }], nice: true },
       },
       tooltip: [
         { field: "date", timeUnit: "yearmonth", title: "Month" },
