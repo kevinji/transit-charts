@@ -30,6 +30,12 @@ export default defineConfig({
             "sha256-0htBJlWQi8OP2de/eousEdDQWRflfMcXAWupbejad6I=",
             "strict-dynamic",
           ],
+          "style-src-attr": [
+            // The inline style on SvelteKit's #svelte-announcer, which visually hides it. Recompute
+            // this if SvelteKit changes it. See https://github.com/sveltejs/kit/issues/11747.
+            "unsafe-hashes",
+            "sha256-S8qMpvofolR8Mpjy4kQvEm7m1q8clzU4dfDH0AmvZjo=",
+          ],
         },
       },
       paths: { relative: false, origin: "https://transitcharts.com" },
