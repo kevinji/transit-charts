@@ -14,3 +14,8 @@ body {
     ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol",
     "Noto Color Emoji";
 }
+
+/* Set here rather than inline, since the Content-Security-Policy blocks inline styles. */
+.app-root {
+  display: contents;
+}

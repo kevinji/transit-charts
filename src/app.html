@@ -9,6 +9,7 @@
     <link rel="icon" href="%sveltekit.assets%/favicon.svg" type="image/svg+xml">
     <link rel="apple-touch-icon" href="%sveltekit.assets%/apple-touch-icon.png">
     <script>
+      "use strict";
       window.dataLayer = window.dataLayer || [];
       function gtag() { dataLayer.push(arguments); }
       gtag("js", new Date());
@@ -28,6 +29,6 @@
     </script>
   </head>
   <body data-sveltekit-preload-data="hover">
-    <div style="display: contents">%sveltekit.body%</div>
+    <div class="app-root">%sveltekit.body%</div>
   </body>
 </html>

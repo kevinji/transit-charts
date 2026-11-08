@@ -10,6 +10,28 @@ export default defineConfig({
     sveltekit({
       preprocess: vitePreprocess(),
       adapter: adapter({ fallback: "plaintext" }),
+      csp: {
+        mode: "auto",
+        directives: {
+          "default-src": ["self"],
+          "base-uri": ["self"],
+          "connect-src": [
+            "self",
+            "https://*.google-analytics.com",
+            "https://*.google.com",
+            "https://cloudflareinsights.com",
+            "https://www.googletagmanager.com",
+          ],
+          "form-action": ["self"],
+          "img-src": ["self", "https://*.google-analytics.com", "https://www.googletagmanager.com"],
+          "object-src": ["none"],
+          "script-src": [
+            // The inline analytics loader in app.html. Recompute this if the script changes.
+            "sha256-0htBJlWQi8OP2de/eousEdDQWRflfMcXAWupbejad6I=",
+            "strict-dynamic",
+          ],
+        },
+      },
       paths: { relative: false, origin: "https://transitcharts.com" },
     }),
 
