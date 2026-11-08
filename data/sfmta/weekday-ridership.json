@@ -622,11 +622,26 @@
   {
     "year": 2026,
     "month": 5,
-    "riders": 126060
+    "riders": 126030
   },
   {
     "year": 2026,
     "month": 6,
-    "riders": 127260
+    "riders": 127330
+  },
+  {
+    "year": 2026,
+    "month": 7,
+    "riders": 122110
+  },
+  {
+    "year": 2026,
+    "month": 8,
+    "riders": 126050
+  },
+  {
+    "year": 2026,
+    "month": 9,
+    "riders": 131180
   }
 ]
