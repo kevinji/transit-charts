@@ -32,7 +32,9 @@
     <a
       href="https://github.com/kevinji/transit-charts"
       rel="external"
-      {...stylex.attrs(styles.link)}>View the source code on GitHub</a
+      {...stylex.attrs(styles.link)}
     >
+      View the source code on GitHub
+    </a>
   </div>
 </footer>

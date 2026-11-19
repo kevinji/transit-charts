@@ -28,10 +28,10 @@
 </script>
 
 <p {...stylex.attrs(styles.source)}>
-  Data: <a href={agency.source.url} rel="external" {...stylex.attrs(styles.link)}
-    >{agency.source.name}</a
-  >{#if agency.license}
-    , licensed under <a href={agency.license.url} rel="external" {...stylex.attrs(styles.link)}
-      >{agency.license.name}</a
-    >{/if}. Monthly averages are computed from the source data.
+  Data: <a href={agency.source.url} rel="external" {...stylex.attrs(styles.link)}>
+    {agency.source.name}
+  </a>{#if agency.license}
+    , licensed under <a href={agency.license.url} rel="external" {...stylex.attrs(styles.link)}>
+      {agency.license.name}
+    </a>{/if}. Monthly averages are computed from the source data.
 </p>
