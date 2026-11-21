@@ -25,10 +25,15 @@ export default defineConfig({
           "form-action": ["self"],
           "img-src": ["self", "https://*.google-analytics.com", "https://www.googletagmanager.com"],
           "object-src": ["none"],
+          // No 'strict-dynamic': prerendered pages use hashes rather than nonces, and trust from a
+          // hashed inline script does not extend to its `import()` of SvelteKit's entry chunks.
+          // 'strict-dynamic' would also make the browser ignore 'self' and the hosts below.
           "script-src": [
+            "self",
             // The inline analytics loader in app.html. Recompute this if the script changes.
             "sha256-0htBJlWQi8OP2de/eousEdDQWRflfMcXAWupbejad6I=",
-            "strict-dynamic",
+            "https://www.googletagmanager.com",
+            "https://static.cloudflareinsights.com",
           ],
           "style-src-attr": [
             // The inline style on SvelteKit's #svelte-announcer, which visually hides it. Recompute
