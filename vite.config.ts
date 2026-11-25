@@ -9,7 +9,7 @@ export default defineConfig({
   plugins: [
     sveltekit({
       preprocess: vitePreprocess(),
-      adapter: adapter({ fallback: "plaintext" }),
+      adapter: adapter({ worker: false }),
       csp: {
         mode: "auto",
         directives: {

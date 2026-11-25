@@ -12,7 +12,6 @@ pattern = "www.transitcharts.com"
 custom_domain = true
 
 [assets]
-directory = ".svelte-kit/cloudflare"
 not_found_handling = "404-page"
 
 [observability]
