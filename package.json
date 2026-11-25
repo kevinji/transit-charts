@@ -18,7 +18,7 @@
     "@stylexjs/eslint-plugin": "^0.19.2",
     "@stylexjs/stylex": "^0.19.2",
     "@stylexjs/unplugin": "^0.19.2",
-    "@sveltejs/adapter-cloudflare": "^8.0.4",
+    "@sveltejs/adapter-cloudflare": "^9.0.0",
     "@sveltejs/kit": "^3.4.0",
     "@sveltejs/vite-plugin-svelte": "^7.3.2",
     "@types/eslint": "^9.6.1",
